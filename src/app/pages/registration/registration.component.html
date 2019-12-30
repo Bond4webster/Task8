@@ -1,0 +1,80 @@
+<div class="reg">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="title">{{title}}</h1>
+    <div class="form-group">
+      <input class="form-input" placeholder=" " formControlName="surname">
+      <label class="form-label">Surname</label>
+      <div
+        *ngIf="form.get('surname').invalid && form.get('surname').touched"
+        class="validation">
+        <small
+        *ngIf="form.get('surname').errors.required">
+          The field cannot be empty
+        </small>
+        <small
+          *ngIf="form.get('surname').errors.pattern">
+          Surname is entered incorrectly
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-input" placeholder=" " formControlName="name">
+      <label class="form-label">Name</label>
+      <div
+        *ngIf="form.get('name').invalid && form.get('name').touched"
+        class="validation">
+        <small
+          *ngIf="form.get('name').errors.required">
+          The field cannot be empty
+        </small>
+        <small
+          *ngIf="form.get('name').errors.pattern">
+          Name is entered incorrectly
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-input" placeholder=" " formControlName="cityID">
+      <label class="form-label">City</label>
+      <div
+      *ngIf="form.get('cityID').invalid && form.get('cityID').touched"
+      class="validation">
+      <small
+        *ngIf="form.get('cityID').errors.required">
+        The field cannot be empty
+      </small>
+    </div>
+    </div>
+    <div class="form-group">
+      <input class="form-input" placeholder=" " formControlName="login">
+      <label class="form-label">Login</label>
+      <div
+      *ngIf="form.get('login').invalid && form.get('login').touched"
+      class="validation">
+      <small
+        *ngIf="form.get('login').errors.required">
+        The field cannot be empty
+      </small>
+    </div>
+    </div>
+    <div class="form-group">
+      <input  class="form-input" placeholder=" " formControlName="password">
+      <label  class="form-label">Password</label>
+      <div
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+        class="validation">
+        <small
+          *ngIf="form.get('password').errors.required">
+          The field cannot be empty
+        </small>
+        <small
+          *ngIf="form.get('password').errors.minlength">
+          Password must be longer than {{form.get('password').errors.minlength.requiredLength}} characters.
+          Now the number of characters is {{form.get('password').errors.minlength.actualLength}}.
+        </small>
+      </div>
+    </div>
+    <input class="form-button" type = "submit" value = "Submit" [disabled]="form.invalid">
+    <input class="form-button" type = "button" value = "Back" id="back" routerLink="/">
+  </form>
+</div>

@@ -1,0 +1,25 @@
+div{
+  font-size: 28px;
+  background: #336699;
+  width: auto;
+  height: 3rem;
+  display: block;
+  position: relative;
+}
+span{
+  margin-left: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+a{
+  margin-right: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left:90%;
+
+}
+.container{
+  position: relative;
+}

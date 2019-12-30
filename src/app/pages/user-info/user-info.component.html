@@ -1,0 +1,17 @@
+<div *ngIf="user">
+
+  <h2>{{user.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{user.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="user.name" placeholder="name"/>
+    </label>
+    <label>surname:
+      <input [(ngModel)]="user.surname" placeholder="surname"/>
+    </label>
+    <label>login:
+      <input [(ngModel)]="user.login" placeholder="login"/>
+    </label>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="auth">
+  <form class="form"  [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="title">{{title}}</h1>
+    <div class="form-group">
+      <input class="form-input" placeholder=" " formControlName="login">
+      <label class="form-label">Login</label>
+      <div
+        *ngIf="form.get('login').invalid && form.get('login').touched"
+        class="validation">
+        <small
+          *ngIf="form.get('login').errors.required">
+          The field cannot be empty
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-input" placeholder=" " formControlName="password">
+      <label  class="form-label">Password</label>
+      <div
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+        class="validation">
+        <small
+          *ngIf="form.get('password').errors.required">
+          The field cannot be empty
+        </small>
+        <small
+          *ngIf="form.get('password').errors.minlength">
+          Password must be longer than {{form.get('password').errors.minlength.requiredLength}} characters.
+          Now the number of characters is {{form.get('password').errors.minlength.actualLength}}.
+        </small>
+      </div>
+    </div>
+    <input class="form-button" type = "submit" value = "Submit" [disabled]="form.invalid">
+    <input type = "button" class="form-button" id="reg" value = "Registration" routerLink="reg">
+  </form>
+</div>
+

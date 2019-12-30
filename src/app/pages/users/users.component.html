@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="container">
+  <ul class="users">
+    <li *ngFor="let user of users"
+        [class.selected]="user === selectedUser"
+        (click)="onSelect(user)">
+        {{user.name}}
+    </li>
+  </ul>
+</div>
+<!--<app-user-info [user]="selectedUser"></app-user-info>-->
