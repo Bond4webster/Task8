@@ -1,5 +1,8 @@
 import {Component,  OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserAuth} from "../../UserModel";
+import {UserServiceService} from "../../services/user-service.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,11 +13,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class AuthComponent implements OnInit {
   title = 'User app';
   form:FormGroup;
-  constructor() { }
+  constructor(private userService: UserServiceService,
+              private router:Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
-      login: new FormControl('',[
+      email: new FormControl('',[
         Validators.required
       ]),
       password: new FormControl(null,[
@@ -26,6 +30,14 @@ export class AuthComponent implements OnInit {
 
   submit() {
     console.log(this.form.value);
-    this.form.reset();
+    const user: UserAuth = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
+    this.userService.login(user).subscribe(()=>{
+      this.form.reset();
+      this.router.navigate(['/list']);
+    });
+
   }
 }

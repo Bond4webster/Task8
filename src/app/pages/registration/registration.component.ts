@@ -37,7 +37,14 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
     console.log(this.form.value);
-    this.userService.registration(this.form.value).subscribe(response => console.log(response));
+    const user: UserModel = {
+      name: this.form.value.name,
+      surname: this.form.value.surname,
+      cityID: this.form.value.cityID,
+      login: this.form.value.login,
+      password: this.form.value.password
+    }
+    this.userService.registration(user).subscribe();
     this.form.reset();
   }
 }
