@@ -29,7 +29,6 @@ export class AuthComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
     const user: UserAuth = {
       email: this.form.value.email,
       password: this.form.value.password

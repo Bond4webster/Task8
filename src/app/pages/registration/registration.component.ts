@@ -36,7 +36,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
     const user: UserModel = {
       name: this.form.value.name,
       surname: this.form.value.surname,
@@ -44,7 +43,6 @@ export class RegistrationComponent implements OnInit {
       login: this.form.value.login,
       password: this.form.value.password
     }
-    this.userService.registration(user).subscribe();
-    this.form.reset();
+    this.userService.registration(user);
   }
 }

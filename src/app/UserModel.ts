@@ -9,7 +9,9 @@ export class UserModel {
 export class UserAuth {
   email: string;
   password: string;
+  returnSecureToken?: boolean;
 }
 export interface FbAuthResponse {
-  idToken: string
+  idToken: string;
+  expiresIn: string;
 }
